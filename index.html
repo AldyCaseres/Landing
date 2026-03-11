@@ -1,30 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Luna - Mis XV</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 
 <style>
 
 body{
-margin:0;
-font-family:Arial;
-background:#ffe6f0;
+font-family: 'Playfair Display', serif;
+background:#ffe6f2;
 text-align:center;
-color:#5a2a4d;
 }
 
-section{
-padding:60px 20px;
+.hero{
+background:linear-gradient(135deg,#ffb6d9,#ffcce6);
+color:white;
+padding:120px 20px;
 }
 
-h1{
-font-size:50px;
-margin-bottom:10px;
+.hero h1{
+font-size:70px;
 }
 
-h2{
-font-size:30px;
+.hero h2{
+font-size:40px;
 }
 
 .contador{
@@ -33,45 +39,62 @@ margin-top:20px;
 font-weight:bold;
 }
 
-.boton{
+.section1{
+background:#fff0f7;
+padding:80px 20px;
+}
+
+.section2{
+background:#ffd9ec;
+padding:80px 20px;
+}
+
+.section3{
+background:#ffe6f5;
+padding:80px 20px;
+}
+
+.section4{
+background:#ffcce6;
+padding:80px 20px;
+}
+
+.btn-confirmar{
 background:#ff4da6;
-color:white;
-padding:15px 30px;
+border:none;
+padding:15px 35px;
+font-size:20px;
 border-radius:30px;
-text-decoration:none;
-font-size:18px;
-display:inline-block;
-margin-top:20px;
+color:white;
 }
 
-.carrusel{
-width:300px;
-height:350px;
-margin:auto;
-overflow:hidden;
-border-radius:20px;
-}
-
-.carrusel img{
-width:100%;
-height:350px;
-object-fit:cover;
+.btn-confirmar:hover{
+background:#ff1a8c;
 }
 
 .dress{
-font-size:20px;
-background:#ffd6ec;
+font-size:24px;
+background:white;
 display:inline-block;
-padding:15px 30px;
-border-radius:15px;
+padding:15px 35px;
+border-radius:20px;
+}
+
+.carousel img{
+height:400px;
+object-fit:cover;
+border-radius:20px;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<section>
+<!-- HERO -->
+
+<section class="hero">
 
 <h1>Luna</h1>
 <h2>Mis XV</h2>
@@ -82,32 +105,73 @@ border-radius:15px;
 
 </section>
 
-<section>
 
-<h2>📷 Recuerdos</h2>
+<!-- FOTOS -->
 
-<div class="carrusel">
-<img id="foto" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
+<section class="section1">
+
+<h2>Recuerdos</h2>
+
+<div class="container mt-4">
+
+<div id="carouselExample" class="carousel slide">
+
+<div class="carousel-inner">
+
+<div class="carousel-item active">
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" class="d-block w-100">
+</div>
+
+<div class="carousel-item">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" class="d-block w-100">
+</div>
+
+<div class="carousel-item">
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9" class="d-block w-100">
+</div>
+
+</div>
+
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+<span class="carousel-control-prev-icon"></span>
+</button>
+
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+<span class="carousel-control-next-icon"></span>
+</button>
+
+</div>
+
 </div>
 
 </section>
 
-<section>
 
-<h2>📍 Ubicación</h2>
+<!-- UBICACION -->
+
+<section class="section2">
+
+<h2>Ubicación</h2>
 
 <p>Salón Jardín de Sueños</p>
 
+<div class="container">
+
 <iframe
 src="https://maps.google.com/maps?q=buenos%20aires&t=&z=13&ie=UTF8&iwloc=&output=embed"
-width="80%" height="300">
+width="100%" height="350" style="border-radius:20px;border:none;">
 </iframe>
+
+</div>
 
 </section>
 
-<section>
 
-<h2>👗 Dress Code</h2>
+<!-- DRESS CODE -->
+
+<section class="section3">
+
+<h2>Dress Code</h2>
 
 <div class="dress">
 Elegante
@@ -115,57 +179,37 @@ Elegante
 
 </section>
 
-<section>
+
+<!-- CONFIRMAR -->
+
+<section class="section4">
 
 <h2>Confirmar asistencia</h2>
 
-<a class="boton" href="https://wa.me/5491112345678">
+<a href="https://wa.me/5491112345678" class="btn-confirmar">
 Confirmar por WhatsApp
 </a>
 
 </section>
 
 
-<script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-/* CONTADOR */
+<script>
 
 var fechaEvento = new Date("July 10, 2026 21:00:00").getTime();
 
-var x = setInterval(function() {
+var x = setInterval(function(){
 
 var ahora = new Date().getTime();
 var distancia = fechaEvento - ahora;
 
-var dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+var dias = Math.floor(distancia / (1000*60*60*24));
 
 document.getElementById("contador").innerHTML =
 "Faltan " + dias + " días";
 
-}, 1000);
-
-
-/* CARRUSEL */
-
-var fotos = [
-"https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
-"https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-"https://images.unsplash.com/photo-1517841905240-472988babdf9"
-];
-
-var i = 0;
-
-setInterval(function(){
-
-i++;
-
-if(i >= fotos.length){
-i = 0;
-}
-
-document.getElementById("foto").src = fotos[i];
-
-},3000);
+},1000);
 
 </script>
 
